@@ -1,0 +1,17 @@
+JQuery 연습 중 split에 관하여
+
+오늘은 JQuery에 관한 예제를 연습했는데 그 중 split이 까다로웠다.
+
+if (email.includes('@')
+		let domainWithDot = email.split('@')[1];
+        let onlyDomain = domainWithDot.split('.')[0];
+        alert(onlyDomain)
+예제로 나온 split에 관한 코드는 내가 생각한 것과 같이 let으로 domainwithdot값과 onlydomain 값을 각각 따로 선언해서 넣는 식이었다.
+하지만 해설강의에서의 강사님은
+
+	if (txt.includes('@') == true) {
+    	alert(txt.split('@')[1].split('.')[0])
+      }   
+위의 식으로 좀더 깔끔하게 원하는 값을 내셨다. includes를 참,거짓으로 활용하시면서 split내의 코드를 한 문장으로 두번 나누는 결과값을 도출됐다고 보였다.
+
+코딩은 하는 사람에 따라 다를 수 있다는 걸 깨달은 좋은 경험이었다.

@@ -1,0 +1,25 @@
+Javascript 맛보기 도중 console오류 해결
+
+자바스크립트 맛을 한번 보려고 하던 도중...
+
+DevTools failed to load source map: Could not load content for chrome-extension://hnmpcagpplmpfojmgmnngilcnanddlhb/browser-polyfill.min.js.map: System error: net::ERR_BLOCKED_BY_CLIENT
+
+이건 또 뭐야... 크롬 개발자 도구 콘솔창 상단에 이런 오류가 표시됐다. 진행에는 아무 문제가 없었지만 너무 찜찜해 바로 구글링. 소스맵 로드 실패라고 한다. 소스맵은 또 뭐야...
+구글링 해보니 배포용으로 빌드한 파일과 원본파일을 연결시켜주는 기능이라고 한다.
+
+해결해보자. 폭풍 구글링으로 비슷한 오류 예시를 발견
+
+//# sourceMappingURL=example.js.map
+
+--> 수정
+
+// //# sourceMappingURL=example.js.map
+
+뭔가 쎄한 느낌을 받고 다시 자세히 뜯어보니
+
+example.js.map이 메시지에 나왔다면 example.js를 수정
+
+이라는 선행조건이 있었다. 심지어 같은 예시들의 오류문구들은 'error: status code 404'의 차이가 있었다.
+'내가 수정을 할 수 없다면 안보이게라도 해보자'라는 마인드로 DevTools의 설정으로 들어가니까 여러 항목중에 'Enable Javescript source maps'라는 항목이 눈에 띈다. 새로고침 해보니 웬걸, 깔끔히 사라져있다.
+
+오류가 뜨더라도 그 종류가 다르면 해결방법도 다르구나 싶었다. 구글링을 하더라도 그 점을 정확히 인지하고 잘 비교하여 그에 맞는 해결책을 내는 것이 필요하구나
